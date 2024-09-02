@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 20px 60px;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 30px;
+        }
+
+        .links ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .links ul li a {
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            letter-spacing: -1px;
+            transition: all 0.1s linear 0.2s;
+        }
+
+        .links ul li a:hover {
+            text-decoration: underline;
+            color: red;
+        }
+
+        .hisaabContainer {
+            margin-top: 60px;
+        }
+
+        .hisaabContainer h2 {
+            color: brown;
+        }
+
+        .hisaab {
+            margin-top: 20px;
+            width: 18rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .hisaab .filesContainer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0a6bdb;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .filesContainer .filename a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .filename .arrow {
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1.2rem;
+            height: 1.2rem;
+            border-radius: 50%;
+        }
+
+        .filename .arrow i {
+            color: #0a6bdb;
+            font-weight: bolder;
+        }
+
+        .customizationContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .customizationContainer .edit a {
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .customizationContainer .delete {
+            background-color: white;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .customizationContainer .delete a {
+            color: red;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <h1>Khaatabook</h1>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/create">Create New Hisaab</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="hisaabContainer">
+        <h2 class="heading">
+            All Hisaab Kitaab
+        </h2>
+        <div class="hisaab">
+
+            <% files.forEach((file)=>{ %>
+
+                <div class="filesContainer">
+                    <div class="filename">
+                        <a href="/read/<%= file %>">
+                            <%= file %>
+                                <div class="arrow">
+                                    <i class="ri-arrow-right-line"></i>
+                                </div>
+                        </a>
+                    </div>
+                    <div class="customizationContainer">
+                        <div class="edit">
+                            <a href="/edit/<%= file %>">
+                                <i class="ri-pencil-line"></i>
+                            </a>
+                        </div>
+                        <div class="delete">
+                            <a href="/delete/<%= file %>">
+                                <i class="ri-delete-bin-6-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <% }) %>
+        </div>
+    </div>
+</body>
+
+</html>

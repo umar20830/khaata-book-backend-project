@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 20px 60px;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 30px;
+        }
+
+        .links ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .links ul li a {
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            letter-spacing: -1px;
+            transition: all 0.1s linear 0.2s;
+        }
+
+        .links ul li a:hover {
+            text-decoration: underline;
+            color: red;
+        }
+
+        .readContainer {
+            margin-top: 40px;
+        }
+
+        .readContainer h1 {
+            color: brown;
+            text-decoration: underline black;
+        }
+
+        .readContainer p {
+            margin-top: 30px;
+            font-size: 30px;
+        }
+
+        .readContainer p span {
+            color: #0a6bdb;
+            padding: 0 10px;
+            font-weight: bolder;
+        }
+
+        .readContainer textarea {
+            margin-top: 40px;
+            font-size: 25px;
+            background-color: antiquewhite;
+            overflow: auto;
+            padding: 10px;
+        }
+
+        .readContainer input {
+            margin-left: 10px;
+            padding: 10px 10px 10px 10px;
+        }
+        .formContainer{
+            width: 50%;
+            margin-top: 20px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        form textarea{
+            font-size: 20px;
+            font-weight: 700;
+            background-color: antiquewhite;
+            padding: 0 20px;
+        }
+        form div input{
+            padding: 10px 20px 10px 20px;
+            background-color: blueviolet;
+            color: white;
+            font-size: 25px;
+            font-weight: bolder;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <h1>Khaatabook</h1>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/create">Create New Hisaab</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="readContainer">
+        <h1>Edit Your Hisaab</h1>
+        <p>
+            Hisaab of <span>"<%= filename.replace(".txt","") %>"</span> date
+        </p>
+    </div>
+    <div class="formContainer">
+        <form action="/update/<%= filename %>" method="post">
+            <textarea cols="20" rows="10" name="updateData" wrap="hard">
+                <%= data %>
+            </textarea>
+            <div>
+            <input type="submit" value="Edit File">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
